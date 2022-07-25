@@ -1,3 +1,0 @@
-* TODO remove grape picture
-* TODO create outline of content
-* TODO figure out how to start doing embedded animations
