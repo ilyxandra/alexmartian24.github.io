@@ -11,7 +11,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-         Focketh yew m8
+          Focketh yew m8 (with changes)
         </h1>
 
 
