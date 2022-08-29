@@ -27,15 +27,15 @@ function Draw() {
     //var petalColor = p5.color(randomColor, randomColor,       randomColor);
     var width = window.innerWidth
     var height = window.innerHeight
-    var x1 = 370;
-    var y1 = 200;
-    var x2 = 250;
-    var y2 = 350;
-    var x3 = 490;
-    var y3 = 350;
     var grassPosX = 0;
-    var grassPosY = 350;
+    var grassPosY = height - 100;
     var grasslength= width;
+    var x1 = width+50;
+    var y1 = grassPosY;
+    var x2 = width-220;
+    var y2 = grassPosY;
+    var x3 = width-90;
+    var y3 = grassPosY-200;
     p5.noStroke();
     function mountain(x1, y1, x2, y2, x3, y3){
       //5.noStroke()
@@ -43,9 +43,9 @@ function Draw() {
       p5.triangle(x1, y1, x2, y2, x3, y3);
       p5.fill(255);
     }
-    mountain(x1 + 150, y1, x2 + 150, y2, x3 + 150, y3);
-    mountain(x1-20, y1, x2, y2, x3-40, y3)
-    mountain(x1-350, y1, x2-330, y2, x3-370, y3)
+    //mountain(x1 + 150, y1, x2 + 150, y2, x3 + 150, y3);
+    mountain(x1-x1, y1, x2-x1, y2, x3-x1, y3)
+    mountain(x1, y1, x2, y2, x3, y3)
 
     p5.fill(grassColor);
     p5.rect(grassPosX, grassPosY, grasslength);
@@ -53,19 +53,19 @@ function Draw() {
     //flower
     p5.push();
     p5.fill(grassColor);
-    p5.rect(200, 200, 10, 225);
+    p5.rect(200, grassPosY-175, 10, grassPosY);
     p5.pop();
     //flowerpetals
     p5.push();
     p5.fill(255);
-    p5.translate(205, 200);
+    p5.translate(205, grassPosY-175);
     for (let i = 0; i < 8; i++){
       p5.ellipse(0, 5, 100, 15);
       p5.rotate(pi/4);
     }
     p5.pop();
     p5.fill(sunColor);
-    p5.circle(205, 200, 25);
+    p5.circle(205, grassPosY-175, 25);
   }
 
   //flower();
