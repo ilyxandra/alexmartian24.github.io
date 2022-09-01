@@ -46,22 +46,6 @@ function Draw() {
     p5.fill(grassColor);
     p5.rect(grassPosX, grassPosY, grasslength);
 
-    //flower
-    p5.push();
-    p5.fill(grassColor);
-    p5.rect(200, grassPosY-175, 10, grassPosY);
-    p5.pop();
-    //flowerpetals
-    p5.push();
-    p5.fill(255);
-    p5.translate(205, grassPosY-175);
-    for (let i = 0; i < 8; i++){
-      p5.ellipse(0, 5, 100, 15);
-      p5.rotate(pi/4);
-    }
-    p5.pop();
-    p5.fill(sunColor);
-    p5.circle(205, grassPosY-175, 25);
   }
 
   //flower();
