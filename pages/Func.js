@@ -4,9 +4,42 @@ var mountainColor = "#47464a";
 var sunColor = "#ffb300";
 
 
+//three flowers
+//one sun
+///five mountains (two on one side, three on the other)
+//clicking
+//name
+
+
+function scenery(){
+    p5.background(skyColor)
+
+    var grassPosX = 0;
+    var grassPosY = height - 100;
+    var grasslength= width;
+    var x1 = width+50;
+    var y1 = grassPosY;
+    var x2 = width-220;
+    var y2 = grassPosY;
+    var x3 = width-90;
+    var y3 = grassPosY-200;
+    p5.noStroke();
+    function mountain(x1, y1, x2, y2, x3, y3){
+      //5.noStroke()
+      p5.fill(mountainColor);
+      p5.triangle(x1, y1, x2, y2, x3, y3);
+      p5.fill(255);
+    }
+    //mountain(x1 + 150, y1, x2 + 150, y2, x3 + 150, y3);
+    mountain(x1-x1, y1, x2-x1, y2, x3-x1, y3)
+    mountain(x1, y1, x2, y2, x3, y3)
+
+    p5.fill(grassColor);
+    p5.rect(grassPosX, grassPosY, grasslength);
+
+}
+
 function flower(){
-  //flower
-  const draw = p5 => {
   //flower
     p5.push();
     p5.fill(grassColor);
@@ -24,7 +57,6 @@ function flower(){
     p5.fill(sunColor);
     p5.circle(205, grassPosY-175, 25);
   }
-}
 
 function sun(){
   fill (sunColor);
