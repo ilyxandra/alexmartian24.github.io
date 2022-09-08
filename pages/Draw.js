@@ -17,7 +17,7 @@ function Draw() {
     click(p5)
   }
 
-  return <Sketch setup={setup} draw={draw} windowResized={resize} mouseClicked={handleclick} />
+  return <Sketch setup={setup} draw={draw} windowResized={resize} mouseClicked={handleclick} touchStarted={handleclick} />
 }
 
 
