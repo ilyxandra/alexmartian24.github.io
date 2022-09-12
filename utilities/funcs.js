@@ -7,9 +7,6 @@ var sunColor = "#ffb300";
 var height;
 var width;
 
-
-
-
 //three flowers
 //one sun
 ///five mountains (two on one side, three on the other)
@@ -41,6 +38,9 @@ function flower(p5, consts) {
   p5.push();
   //stem
   p5.fill(grassColor);
+  if (p5.mouseX > 100) {
+    //console.log("here")
+  }
   p5.rect(consts.gx2, consts.gy1, consts.gwidth, consts.gy2);
 
   p5.pop();
@@ -135,7 +135,42 @@ function mousePressed(consts) {
 function aboutPage(p5) {
 
 }
-function drawMobile(p5) {
+function drawMobile(p5, consts) {
+  //console.log("WAIT NO I'M HEREEEE!!!");
+  var newH = consts.y;
+  var newW = consts.x;
+  //console.log(newW);
+  p5.fill(grassColor);
+  p5.noStroke();
+  p5.rect(0, consts.y, width);
+  var i = 0;
+  p5.fill(0);
+  p5.rect(newW+i, newH-i, consts.gwidth);
+
+  //THIS IS THE FOR LOOP THAT I'VE BEEN STRUGGLING WITH
+  /*
+  while(newH > 100){
+    console.log(newH);
+    for (i; i <= 80; i++){
+      newH--;
+      newW++;
+      p5.rect(newW, newH, consts.gwidth);
+    }
+    for (i; i > 80; i++){
+      newH--;
+      newW--;
+      p5.rect(newW, newH, consts.gwidth);
+    }
+  }
+  //while (newH >= 50){
+    //p5.rect(newW+i, newH-i, consts.gwidth);
+    */
+
+
+
+  //for (var j = i; j < 40; j++)
+
+  //}
 
 }
 
@@ -147,15 +182,17 @@ export const genSetup = p5 => {
 }
 
 export const draw = p5 => {
-  if (width > 300) {
+  const mobileConsts = {x: width/2, y: height - 100, gwidth: 10}
+  if (width > 400) {
     drawDesktop(p5);
   }
   else {
-    drawMobile(p5);
+    drawMobile(p5, mobileConsts);
   }
 }
 
 export const click = p5 => {
-  console.log("X Coords" + p5.mouseX);
-  console.log("Y Coords" + p5.mouseY);
+  console.log("X Coords " + p5.mouseX);
+  console.log("Y Coords " + p5.mouseY);
+  window.open("/About")
 }
