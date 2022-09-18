@@ -136,42 +136,35 @@ function aboutPage(p5) {
 
 }
 function drawMobile(p5, consts) {
-  //console.log("WAIT NO I'M HEREEEE!!!");
-  var newH = consts.y;
-  var newW = consts.x;
-  //console.log(newW);
   p5.fill(grassColor);
   p5.noStroke();
   p5.rect(0, consts.y, width);
-  var i = 0;
   p5.fill(0);
-  p5.rect(newW+i, newH-i, consts.gwidth);
+  // gwidth/gheight will define the size of the boxes
+  let side = true; // which side is being expanded
+  let ctr = consts.x; // center of the thing
+  let offx = 0; // counter for x
+  let offy = 0; // counter for y
+  let gran = 0.15; // how granular is rendering
+  let xyratio = 3; // pretty much defines the amount of turns
+  let padding = 1.5; // padding * x/2 is the amount of space on the edges
+  while (offy < consts.y) {
+    if (offx > consts.x / padding) {
+      side = !side;
+    }
+    else if (offx < -consts.x / padding) {
+      side = !side;
+    }
+    if (side) {
+      offx += gran * xyratio;
+    }
+    else {
+      offx -= gran * xyratio;
+    }
+    offy += gran;
+    p5.rect(offx + ctr, offy, consts.gwidth, consts.gheight);
 
-  //THIS IS THE FOR LOOP THAT I'VE BEEN STRUGGLING WITH
-  /*
-  while(newH > 100){
-    console.log(newH);
-    for (i; i <= 80; i++){
-      newH--;
-      newW++;
-      p5.rect(newW, newH, consts.gwidth);
-    }
-    for (i; i > 80; i++){
-      newH--;
-      newW--;
-      p5.rect(newW, newH, consts.gwidth);
-    }
   }
-  //while (newH >= 50){
-    //p5.rect(newW+i, newH-i, consts.gwidth);
-    */
-
-
-
-  //for (var j = i; j < 40; j++)
-
-  //}
-
 }
 
 export const genSetup = p5 => {
@@ -182,7 +175,7 @@ export const genSetup = p5 => {
 }
 
 export const draw = p5 => {
-  const mobileConsts = {x: width/2, y: height - 100, gwidth: 10}
+  const mobileConsts = { x: width / 2, y: height - 100, gwidth: 20, gheight: 10 }
   if (width > 400) {
     drawDesktop(p5);
   }
