@@ -2,16 +2,9 @@ var skyColor = "#03cafc";
 var grassColor = "#09b300";
 var mountainColor = "#47464a";
 var sunColor = "#ffb300";
-// height and width are just filler vals that will be replaced
-// when genSetup is called for the first time
+
 var height;
 var width;
-
-//three flowers
-//one sun
-///five mountains (two on one side, three on the other)
-//clicking
-//name
 
 function flower(p5, consts) {
   p5.noStroke();
@@ -122,19 +115,16 @@ function drawDesktop(p5) {
   p5.fill(255)
   p5.noStroke();
   p5.textSize(50)
+  p5.textFont("Georgia");
   p5.text("Alex Martin", width / 3, 50);
+  p5.textSize(25);
+  p5.text("Click the flowers for different links", width/3, height - 100);
 }
 
-function mousePressed(consts) {
-  if (p5.mouseX < consts.gx + 20 && p5.mouseX > consts.gx - 20) {
-    if (p5.mouseY < consts.gy + 20 && p5.mouseY > consts.gy - 20) {
-      console.log("help");
-    }
-  }
-}
 function aboutPage(p5) {
 
 }
+
 function drawMobile(p5, consts) {
   p5.fill(grassColor);
   p5.noStroke();
@@ -187,5 +177,12 @@ export const draw = p5 => {
 export const click = p5 => {
   console.log("X Coords " + p5.mouseX);
   console.log("Y Coords " + p5.mouseY);
-  window.open("/About")
+  if (p5.mouseX < (width/2 + 40) && p5.mouseX > (width/2 - 40)){
+    console.log("X Coords are correct");
+    if (p5.mouseY > (height-315) && p5.mouseY < (height + 235)){
+      console.log("Y Coords are correct");
+      window.open("/About");
+    }
+  }
 }
+
