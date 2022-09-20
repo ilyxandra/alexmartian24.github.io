@@ -126,18 +126,19 @@ function aboutPage(p5) {
 }
 
 function drawMobile(p5, consts) {
-  p5.fill(grassColor);
-  p5.noStroke();
   p5.rect(0, consts.y, width);
-  p5.fill(0);
   // gwidth/gheight will define the size of the boxes
   let side = true; // which side is being expanded
   let ctr = consts.x; // center of the thing
   let offx = 0; // counter for x
-  let offy = 0; // counter for y
+  let offy = 150; // counter for y
+  let fcent = offy;
   let gran = 0.15; // how granular is rendering
   let xyratio = 3; // pretty much defines the amount of turns
-  let padding = 1.5; // padding * x/2 is the amount of space on the edges
+  let padding = 1.75; // padding * x/2 is the amount of space on the edges
+  //stem
+  p5.fill(grassColor);
+  p5.noStroke();
   while (offy < consts.y) {
     if (offx > consts.x / padding) {
       side = !side;
@@ -153,8 +154,21 @@ function drawMobile(p5, consts) {
     }
     offy += gran;
     p5.rect(offx + ctr, offy, consts.gwidth, consts.gheight);
-
   }
+  //flower
+  p5.push();
+  p5.fill(0);
+  p5.translate(ctr, fcent);
+  for (let i = 0; i < 8; i++) {
+    p5.ellipse(0, 6, 175, 30);
+    p5.rotate(p5.PI / 4);
+  }
+  p5.pop();
+  p5.push();
+  p5.fill(sunColor);
+  p5.circle(ctr, fcent, 50);
+  p5.pop();
+
 }
 
 export const genSetup = p5 => {
@@ -165,7 +179,7 @@ export const genSetup = p5 => {
 }
 
 export const draw = p5 => {
-  const mobileConsts = { x: width / 2, y: height - 100, gwidth: 20, gheight: 10 }
+  const mobileConsts = { x: width / 2, y: height - 100, gwidth: 20, gheight: 15 }
   if (width > 400) {
     drawDesktop(p5);
   }
