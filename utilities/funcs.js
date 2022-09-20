@@ -180,7 +180,7 @@ export const genSetup = p5 => {
 
 export const draw = p5 => {
   const mobileConsts = { x: width / 2, y: height - 100, gwidth: 20, gheight: 15 }
-  if (width > 400) {
+  if (width > 450) {
     drawDesktop(p5);
   }
   else {
