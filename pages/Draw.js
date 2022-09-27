@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import { click, genSetup, draw } from '../utilities/funcs';
+import { click, genSetup, draw } from '../utilities/drawfuncs';
 const Sketch = dynamic(() => import('react-p5').then((mod) => mod.default), { ssr: false })
 
 function Draw() {
