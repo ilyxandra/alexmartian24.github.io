@@ -118,11 +118,7 @@ function drawDesktop(p5) {
   p5.textFont("Georgia");
   p5.text("Alex Martin", width / 3, 50);
   p5.textSize(25);
-  p5.text("Click the flowers for different links", width/3, height - 100);
-}
-
-function aboutPage(p5) {
-
+  p5.text("Click the flowers for different links", width / 3, height - 100);
 }
 
 function drawMobile(p5, consts) {
@@ -171,13 +167,6 @@ function drawMobile(p5, consts) {
 
 }
 
-export const genSetup = p5 => {
-  p5.background(skyColor)
-  height = window.innerHeight;
-  width = window.innerWidth;
-  var randomColor = p5.random(0, 255);
-}
-
 export const draw = p5 => {
   const mobileConsts = { x: width / 2, y: height - 100, gwidth: 20, gheight: 15 }
   if (width > 450) {
@@ -188,12 +177,19 @@ export const draw = p5 => {
   }
 }
 
+export const genSetup = p5 => {
+  p5.background(skyColor)
+  height = window.innerHeight;
+  width = window.innerWidth;
+  var randomColor = p5.random(0, 255);
+}
+
 export const click = p5 => {
   console.log("X Coords " + p5.mouseX);
   console.log("Y Coords " + p5.mouseY);
-  if (p5.mouseX < (width/2 + 40) && p5.mouseX > (width/2 - 40)){
+  if (p5.mouseX < (width / 2 + 40) && p5.mouseX > (width / 2 - 40)) {
     console.log("X Coords are correct");
-    if (p5.mouseY > (height-315) && p5.mouseY < (height + 235)){
+    if (p5.mouseY > (height - 315) && p5.mouseY < (height + 235)) {
       console.log("Y Coords are correct");
       window.open("/About");
     }

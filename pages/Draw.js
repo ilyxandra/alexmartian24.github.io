@@ -9,6 +9,7 @@ function Draw() {
   }
 
   const resize = p5 => {
+    p5.clear()
     p5.resizeCanvas(window.innerWidth, window.innerHeight)
     genSetup(p5)
   }
