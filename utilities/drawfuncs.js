@@ -184,6 +184,8 @@ export const genSetup = p5 => {
   var randomColor = p5.random(0, 255);
 }
 
+export const genPreload = p5 => {}
+
 export const click = p5 => {
   console.log("X Coords " + p5.mouseX);
   console.log("Y Coords " + p5.mouseY);

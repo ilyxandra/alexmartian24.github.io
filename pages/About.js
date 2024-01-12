@@ -2,7 +2,7 @@ import styles from '../styles/Home.module.css'
 import dynamic from 'next/dynamic'
 import { click, genSetup, draw } from '../utilities/aboutfuncs';
 const Sketch = dynamic(() => import('react-p5').then((mod) => mod.default), { ssr: false })
-
+//About javascript into p5.js junk
 
 function About() {
     const setup = (p5, canvasParentRef) => {
