@@ -1,15 +1,23 @@
+//i wanna include a picture of pepper with maybe like puzzle background art
 var height;
 var width;
 var deepblue = "#250082";
 var imagePath = "well-its-me.png";
 var img;
 var imageSize = 400;
+var aboutMe = 
+"Welcome to my website! I'm currently studying Computer Science\
+ with a minor in Studio Art at NYU Tandon!\
+ I like to do jigsaw puzzles, sudoku, or draw in my freetime.\
+ I love video games, table-top roleplaying games, and my schoodle Pepper!";
 function drawDesktop(p5) {
   p5.background(deepblue);
   p5.textSize(25);
-  p5.image(img, width / 2 - imageSize / 2, 10, imageSize, imageSize);
+  p5.image(img, width / 2 - imageSize / 2, 10, imageSize/2, imageSize/2);
   p5.fill("white");
-  p5.text("This is the about page", width / 3, height - 500);
+  p5.text("About Me!", width / 2, height/5);
+  //Sp5.textAlign(vertAlign);
+  p5.text(aboutMe, width/2, height-300)
 }
 function drawMobile(p5, _) {
   p5.text("This is the mobile about page", width / 3, height - 100);
