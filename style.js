@@ -26,7 +26,7 @@ function draw() {
   rect(groundX, groundY, wide, length);
   let randint = random(0,1);
   let randomX = random(0,wide/2);
-  if (randint < 0.25){
+  if (randint < 0.05){
     shedding.createFlowers(randomX);
   }
   shedding.drawFlowersLoop();
