@@ -26,7 +26,7 @@ function draw() {
   rect(groundX, groundY, wide, length);
   let randint = random(0,1);
   let randomX = random(0,wide/2);
-  if (randint < 0.01){
+  if (randint < 0.25){
     shedding.createFlowers(randomX);
   }
   shedding.drawFlowersLoop();
@@ -78,7 +78,7 @@ class Flower {
     this.color = "#ffb6c1";
     this.angle = random(TWO_PI); // Random initial angle for swaying
     this.amplitude = random(5, 20); // Random amplitude for swaying
-    this.speed = random(1, 3); // Random falling speed
+    this.speed = random(1,3); // Random falling speed
   }
   drawflower(){
     fill(this.color);
@@ -86,11 +86,11 @@ class Flower {
   }
   fall(){//set flowers to fall
     //TODO:use my game making skills ot make a more natural fall
-    this.x += cos(this.angle) * this.amplitude;
+    this.x += cos(this.angle) * this.amplitude / 5;
     this.angle += 0.05; // Adjust the speed of swaying
 
     // Simulate falling motion
-    this.y += this.speed/3;
+    this.y += this.speed/5;
   }
 }
 //figure out if i can do a time based thing
