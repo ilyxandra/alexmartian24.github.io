@@ -21,7 +21,7 @@ function draw() {
   noStroke();
   background(lightBlue);
   tree.drawImage();
-  image(img2, 2*wide/3, length/2)
+  image(img2, 2*wide/3, length/2, 300, 400)
   fill(groundColor);
   rect(groundX, groundY, wide, length);
   let randint = random(0,1);
