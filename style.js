@@ -6,10 +6,13 @@ var groundX = 0;
 var groundY = 540;
 let treeArr = [];
 let gravity = 9.81;
+let img1;
+let words = "Welcome to Alex Martin's website!"
 
 function setup() {
   createCanvas(wide, length);
-  img1 = loadImage("spring_tree.png");
+  img1 = loadImage("images/spring_tree.png");
+  img2 = loadImage("images/me.jpg")
   tree = new Tree(0,50, img1);
   shedding = new SheddingTree();
 }
@@ -18,6 +21,7 @@ function draw() {
   noStroke();
   background(lightBlue);
   tree.drawImage();
+  image(img2, 2*wide/2, length/2)
   fill(groundColor);
   rect(groundX, groundY, wide, length);
   let randint = random(0,1);
@@ -27,8 +31,10 @@ function draw() {
   }
   shedding.drawFlowersLoop();
   shedding.cleanup();
+  fill(groundColor);
+  textSize(50);
+  text("Alex Martin", wide/3, 100);
 }
-
 
 class Tree{
   constructor (xVal, yVal, img){
