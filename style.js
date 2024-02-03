@@ -21,7 +21,7 @@ function draw() {
   noStroke();
   background(lightBlue);
   tree.drawImage();
-  image(img2, 2*wide/3, length/2, 300, 400)
+  image(img2, 2*wide/3, length/4, 300, 400)
   fill(groundColor);
   rect(groundX, groundY, wide, length);
   let randint = random(0,1);
@@ -33,7 +33,9 @@ function draw() {
   shedding.cleanup();
   fill(groundColor);
   textSize(50);
-  text("Alex Martin", wide/3, 100);
+  text("Alex Martin", wide/3+25, 100);
+  textSize(20);
+  text("Welcome to my personal website!", wide/3, 150);
 }
 
 class Tree{
@@ -75,7 +77,7 @@ class Flower {
     this.x = xValue;
     this.y = yValue;
     this.size = random(0,12)
-    this.color = "#ffb6c1";
+    this.color = "#f7b8e5";
     this.angle = random(TWO_PI); // Random initial angle for swaying
     this.amplitude = random(5, 20); // Random amplitude for swaying
     this.speed = random(1,3); // Random falling speed
