@@ -3,7 +3,7 @@ var groundColor = "#000000";
 var wide = window.innerWidth;
 var length = window.innerHeight;
 var groundX = 0;
-var groundY = 540;
+var groundY = length - 50;
 let treeArr = [];
 let gravity = 9.81;
 let img1;
@@ -36,7 +36,22 @@ function draw() {
   text("Alex Martin", wide/3+25, 100);
   textSize(20);
   text("Welcome to my personal website!", wide/3, 150);
+
+    //beecause this wasn't working otherwise
+    //wings
+  push();
+  translate(mouseX, mouseY);
+  fill("white");
+  ellipse(-15,-10,15,20);
+  ellipse(-10,-13,15,20);
+  //body
+  fill("yellow");
+  ellipse(0,0, 40, 30);
+  fill("black");
+  rect(-5, -15, 10, 30);
+  pop();
 }
+
 
 class Tree{
   constructor (xVal, yVal, img){
@@ -72,6 +87,7 @@ class SheddingTree{
   }
 }
 
+
 class Flower {
   constructor(xValue, yValue){//create flowers
     this.x = xValue;
@@ -87,7 +103,6 @@ class Flower {
     ellipse(this.x, this.y, 8, this.size);
   }
   fall(){//set flowers to fall
-    //TODO:use my game making skills ot make a more natural fall
     this.x += cos(this.angle) * this.amplitude / 5;
     this.angle += 0.05; // Adjust the speed of swaying
 
