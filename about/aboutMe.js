@@ -1,7 +1,11 @@
 backgroundColor = "#5accf1"
 let snowflakeArr = [];
-width = window.innerWidth;
-height = window.innerHeight;
+let width = window.innerWidth;
+let height = window.innerHeight;
+var groundX = 0;
+var groundY = height - 80;
+let treeArr = [];
+let gravity = 9.81;
 
 function setup() {
   tree = loadImage("images/snowyTree.jpg");
@@ -12,8 +16,8 @@ function draw() {
   noStroke();
   background(backgroundColor);
   image(tree, 0, 60, 500, 500);
-  fill("black");
-  rect(0, 550, 500, 50);
+  fill("white");
+  rect(groundX, groundY, width, height);
 }
 class Snowmound{}
 class Snowflake{
