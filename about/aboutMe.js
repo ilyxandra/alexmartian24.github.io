@@ -8,7 +8,7 @@ let treeArr = [];
 let gravity = 9.81;
 
 function setup() {
-  tree = loadImage("images/snowyTree.jpg");
+  tree = loadImage("/images/WinterTree.jpg");
   createCanvas(width,height);
 }
 
