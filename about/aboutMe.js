@@ -1,16 +1,18 @@
 backgroundColor = "#5accf1"
 let snowflakeArr = [];
+width = window.innerWidth;
+height = window.innerHeight;
 
 function setup() {
   tree = loadImage("images/snowyTree.jpg");
-  createCanvas(500,600);
+  createCanvas(width,height);
 }
 
 function draw() {
   noStroke();
   background(backgroundColor);
   image(tree, 0, 60, 500, 500);
-  fill("#000000");
+  fill("black");
   rect(0, 550, 500, 50);
 }
 class Snowmound{}
