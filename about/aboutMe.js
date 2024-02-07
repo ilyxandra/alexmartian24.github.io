@@ -1,26 +1,54 @@
-backgroundColor = "#5accf1"
-let snowflakeArr = [];
+let backgroundColor = "#5accf1"
+
 let width = window.innerWidth;
 let height = window.innerHeight;
 var groundX = 0;
 var groundY = height - 80;
-let treeArr = [];
-let gravity = 9.81;
-let w = 0.1;
+let snowflakeArr = [];
 
 function setup() {
   tree = loadImage("/images/WinterTree.png");
-  createCanvas(width,height);
+  createCanvas(width, height);
+  mound = new Snowmound();
 }
 
 function draw() {
   noStroke();
   background(backgroundColor);
-  image(tree, 0, 60, 500, 500);
+  image(tree, groundX, 60, 500, 500);
   fill("white");
   rect(groundX, groundY, width, height);
+  let randint = random(0, 1);
+  if (randint < 0.025) {
+    let x = random(0, width/2);
+    let y = random(0, height);
+    mound.createSnowflake(x, y);
+  }
+  mound.drawSnowloop();
+  mound.cleanup();
+
 }
-class Snowmound{}
+class Snowmound{
+  constructor(){
+    let snowflakeArr = [];
+  }
+  cleanup(){
+    for (let i = 0; i < snowflakeArr.length; i++){
+      if (snowflakeArr[i].y >= groundY)
+        splice(i, 1);
+    }
+  }
+  drawSnowloop(){
+    for (let i = 0; i < snowflakeArr.length ; i++) {
+      snowflakeArr[i].drawSnow();
+      snowflakeArr[i].fall();
+    }
+  }
+  createSnowflake(x, y){
+    let snowflake = new Snowflake(x, y);
+    snowflakeArr.push(snowflake);
+  }
+}
 class Snowflake{
   constructor(x, y){
   this.x = x
@@ -28,18 +56,15 @@ class Snowflake{
   this.color = "snow";
   this.size = random(0,5);
   this.angle = random(10, 1*PI);
-  this.radius = sqrt(random(pow(100 / 1, 2)));
   }
-  cleanup(){
-    for (i = 0; i < snowflakeArr.length(); i++){
-      if (snowflakeArr[i].this.x >=500)
-        splice(i, 1);
-    }
+  
+  fall(){
+    this.y +=1;
+    
   }
-  fall(w){
-    let angle = w * time + this.angle;
-    this.posX = 100 / 1 + this.radius * tan(angle); //calculates tangent of the angle the petals fall
-    this.posY += pow(this.size, 0.5);
+  drawSnow(){
+    fill(this.color);
+    ellipse(this.x, this.y, 8, this.size);
   }
 }
 
