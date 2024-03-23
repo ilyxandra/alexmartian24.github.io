@@ -1,5 +1,5 @@
 var lightBlue = "#89adf5";
-var groundColor = "#000000";
+var groundColor = "#b36b00";
 var wide = window.innerWidth;
 var length = window.innerHeight;
 var groundX = 0;
@@ -11,7 +11,7 @@ let tree;
 
 function setup() {
   createCanvas(wide, length);
-  img1 = loadImage("images/spring_tree.png");
+  img1 = loadImage("images/trees/spring.png");
   img2 = loadImage("images/me.jpg");
   tree = new Tree(0, 50, img1);
   shedding = new SheddingTree();
