@@ -1,4 +1,5 @@
-import { Seasons, Tree } from "./tree.js";
+import { Seasons, Tree } from "./utils/tree.js";
+import { Button } from "./utils/button.js";
 
 var lightBlue = "#89adf5";
 var groundColor = "#4d2600";
@@ -6,7 +7,7 @@ var darkPink = "#420431";
 var groundY = (height) => height - 80;
 let profile;
 let tree;
-let aboutButton;
+let buttonArr = [];
 
 export const main = (p) => {
   p.setup = () => {
@@ -14,11 +15,50 @@ export const main = (p) => {
 
     tree = new Tree(0, 50, Seasons.Spring, groundY(p.height), p);
 
-    profile = p.loadImage("images/me.jpg");
+    profile = p.loadImage("static/me.jpg");
 
-    aboutButton = p.createButton("About me");
-    aboutButton.position(p.width / 2, 175);
-    aboutButton.mousePressed(about_button);
+    buttonArr.push(
+      new Button(
+        p.width,
+        p.height,
+        (x) => x / 2 - 50,
+        (_y) => 175,
+        80,
+        "about/index.html",
+        "static/buttons/about.svg",
+        p,
+      ),
+      new Button(
+        p.width,
+        p.height,
+        (x) => x / 2 + 50,
+        (_y) => 175,
+        80,
+        "https://github.com/alexmartian24/",
+        "static/buttons/github.svg",
+        p,
+      ),
+      new Button(
+        p.width,
+        p.height,
+        (x) => x / 2 + 150,
+        (_y) => 175,
+        80,
+        "https://www.linkedin.com/in/alexandramartin8024",
+        "static/buttons/linkedin.svg",
+        p,
+      ),
+      new Button(
+        p.width,
+        p.height,
+        (x) => x / 2 + 250,
+        (_y) => 175,
+        80,
+        "https://instagram.com/ilymartian",
+        "static/buttons/instagram.svg",
+        p,
+      ),
+    );
   };
 
   p.draw = () => {
@@ -35,11 +75,14 @@ export const main = (p) => {
     // title
     p.fill(darkPink);
     p.textSize(50);
-    p.text("Alex Martin", p.width / 3 + 25, 100);
+    p.text("Alex Martin", p.width / 2, 100);
     p.textSize(20);
-    p.text("Welcome to my personal website!", p.width / 3, 150);
+    p.text("Welcome to my personal website!", p.width / 2, 150);
     // about page
-    aboutButton.position(p.width / 2, 175);
+    // aboutButton.position(p.width / 2, 175);
+    for (let b of buttonArr) {
+      b.render();
+    }
 
     //ground
     p.fill(groundColor);
@@ -61,11 +104,16 @@ export const main = (p) => {
   p.windowResized = () => {
     p.resizeCanvas(window.innerWidth, window.innerHeight);
     tree.update(0, 50, groundY(p.height));
+    for (let b of buttonArr) {
+      b.update(p.width, p.height);
+    }
+  };
+
+  p.mouseClicked = (_) => {
+    for (let b of buttonArr) {
+      b.click();
+    }
   };
 };
-
-function about_button() {
-  window.location.href = "about/index.html";
-}
 
 new p5(main, document.getElementById("sketch"));

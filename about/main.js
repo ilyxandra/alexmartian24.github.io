@@ -1,4 +1,4 @@
-import { Seasons, Tree } from "../tree.js";
+import { Seasons, Tree } from "../utils/tree.js";
 
 let backgroundColor = "#5accf1";
 var groundColor = "#ffffff";

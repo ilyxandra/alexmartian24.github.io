@@ -6,10 +6,10 @@ class SeasonAttributes {
 }
 
 export const Seasons = {
-  Summer: new SeasonAttributes("/images/trees/spring.png", "#f7b8e5"),
-  Autumn: new SeasonAttributes("/images/trees/spring.png", "#f7b8e5"),
-  Winter: new SeasonAttributes("/images/trees/winter.png", "#ffffff"),
-  Spring: new SeasonAttributes("/images/trees/spring.png", "#f7b8e5"),
+  Summer: new SeasonAttributes("/static/trees/spring.png", "#f7b8e5"),
+  Autumn: new SeasonAttributes("/static/trees/spring.png", "#f7b8e5"),
+  Winter: new SeasonAttributes("/static/trees/winter.png", "#ffffff"),
+  Spring: new SeasonAttributes("/static/trees/spring.png", "#f7b8e5"),
 };
 
 export class Tree {
