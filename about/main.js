@@ -1,66 +1,35 @@
+import { Seasons, Tree } from "../tree.js";
+
 let backgroundColor = "#5accf1";
+var groundColor = "#ffffff";
+var groundY = (height) => height - 80;
+let tree;
 
-let width = window.innerWidth;
-let height = window.innerHeight;
-var groundX = 0;
-var groundY = height - 80;
-let snowflakeArr = [];
+export const main = (p) => {
+  p.setup = () => {
+    p.createCanvas(window.innerWidth, window.innerHeight);
 
-function setup() {
-  tree = loadImage("/images/trees/winter.png");
-  createCanvas(width, height);
-  mound = new Snowmound();
-}
+    tree = new Tree(0, 50, Seasons.Winter, groundY(p.height), p);
+  };
 
-function draw() {
-  noStroke();
-  background(backgroundColor);
-  image(tree, groundX, 60, 500, 500);
-  fill("white");
-  rect(groundX, groundY, width, height);
-  let randint = random(0, 1);
-  if (randint < 0.025) {
-    let x = random(0, width / 2);
-    let y = random(0, height);
-    mound.createSnowflake(x, y);
-  }
-  mound.drawSnowloop();
-  mound.cleanup();
-}
-class Snowmound {
-  constructor() {
-    this.snowflakeArr = [];
-  }
-  cleanup() {
-    for (let i = 0; i < this.snowflakeArr.length; i++) {
-      if (this.snowflakeArr[i].y >= groundY) splice(i, 1);
-    }
-  }
-  drawSnowloop() {
-    for (let i = 0; i < this.snowflakeArr.length; i++) {
-      this.snowflakeArr[i].drawSnow();
-      this.snowflakeArr[i].fall();
-    }
-  }
-  createSnowflake(x, y) {
-    let snowflake = new Snowflake(x, y);
-    this.snowflakeArr.push(snowflake);
-  }
-}
-class Snowflake {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-    this.color = "snow";
-    this.size = random(0, 5);
-    this.angle = random(10, 1 * PI);
-  }
+  p.draw = () => {
+    p.noStroke();
 
-  fall() {
-    this.y += 1;
-  }
-  drawSnow() {
-    fill(this.color);
-    ellipse(this.x, this.y, 8, this.size);
-  }
-}
+    //background
+    p.background(backgroundColor);
+
+    // tree
+    tree.render();
+
+    //ground
+    p.fill(groundColor);
+    p.rect(0, groundY(p.height), p.width, p.height);
+  };
+
+  p.windowResized = () => {
+    p.resizeCanvas(window.innerWidth, window.innerHeight);
+    tree.update(0, 50, groundY(p.height));
+  };
+};
+
+new p5(main, document.getElementById("sketch"));
