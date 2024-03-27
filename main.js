@@ -58,6 +58,16 @@ export const main = (p) => {
         "static/buttons/instagram.svg",
         p,
       ),
+      new Button(
+        p.width,
+        p.height,
+        (x) => x / 2 + 350,
+        (_y) => 175,
+        80,
+        "static/resume.pdf",
+        "static/buttons/resume.svg",
+        p,
+      ),
     );
   };
 
