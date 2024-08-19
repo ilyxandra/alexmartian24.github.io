@@ -44,8 +44,8 @@ export const main = (p) => {
 		//profile/dog pic
 		p.push();
 		p.imageMode(p.CENTER, p.CENTER);
-		p.image(dog, (2 * p.width) / 4 - 175, p.height / 2, 300, 400);
-		p.image(profile, (2 * p.width) / 4 + 175, p.height / 2, 300, 400);
+		p.image(dog, (2 * p.width) / 4 - 175, p.height / 2, p.width/6, (p.height * 3) / 7);
+		p.image(profile, (2 * p.width) / 4 + 175, p.height / 2, p.width/6, (p.height * 3) / 7);
 		p.pop();
 		//ground
 		p.fill(groundColor);

@@ -79,7 +79,7 @@ export const main = (p) => {
     	tree.render();
     	//profile pic
         
-    	p.image(profile, (2 * p.width) / 4, p.height / 2, 300, 400);
+    	p.image(profile, p.width / 2, p.height / 2, p.width/6, (p.height * 3) / 7);
         // title
     	p.fill(darkPink);
     	p.textSize(50);
