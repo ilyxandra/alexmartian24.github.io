@@ -17,12 +17,15 @@ export class Button {
 		this.y = this.yf(y);
 	}
 	click() {
+		let ptr_x = this.p.mouseX || this.p.touchX;
+		let ptr_y = this.p.mouseY || this.p.touchY;
 		if (
-			this.p.mouseX > this.x - (this.image.width/2) &&
-			this.p.mouseX < this.x + (this.image.width/2) &&
-			this.p.mouseY > this.y - (this.image.height/2) &&
-			this.p.mouseY < this.y + (this.image.height/2)
-		) {
+			ptr_x > this.x - (this.image.width/2) &&
+			ptr_x < this.x + (this.image.width/2) &&
+			ptr_y > this.y - (this.image.height/2) &&
+			ptr_y < this.y + (this.image.height/2)
+		) 
+		{
 			window.location.href = this.url;
 		}
 	}

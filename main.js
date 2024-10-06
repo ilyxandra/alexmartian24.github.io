@@ -123,6 +123,11 @@ export const main = (p) => {
     	    b.click();
     	}
     };
+	p.touchStarted = (_) => {
+		for (let b of buttonArr) {
+    	    b.click();
+    	}
+	};
 };
 
 new p5(main, document.getElementById("sketch"));
