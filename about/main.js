@@ -17,8 +17,7 @@ export const main = (p) => {
 
 		tree = new Tree(250, treeHeight(p.height), Seasons.Winter, groundY(p.height), p);
 
-		dog = p.loadImage("../static/pepper.jpg");
-		profile = p.loadImage("../static/me2.jpg");
+		profile = p.loadImage("../static/me+poopy.jpg");
 		
 		back_button = new Button(
 			p.width,
@@ -44,8 +43,8 @@ export const main = (p) => {
 		//profile/dog pic
 		p.push();
 		p.imageMode(p.CENTER, p.CENTER);
-		p.image(dog, (2 * p.width) / 4 - 175, p.height / 2, p.width/6, (p.height * 3) / 7);
-		p.image(profile, (2 * p.width) / 4 + 175, p.height / 2, p.width/6, (p.height * 3) / 7);
+		let aspectRatio = profile.width/profile.height;
+		p.image(profile, p.width/2, p.height/2, aspectRatio*(p.height/2), p.height/2);
 		p.pop();
 		//ground
 		p.fill(groundColor);
@@ -72,6 +71,9 @@ export const main = (p) => {
 	};
 
 	p.mouseClicked = (_) => {
+    	back_button.click();
+    };
+	p.touchStarted = (_) => {
     	back_button.click();
     };
 };
