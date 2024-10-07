@@ -17,7 +17,7 @@ export const main = (p) => {
 
 		tree = new Tree(250, treeHeight(p.height), Seasons.Winter, groundY(p.height), p);
 
-		profile = p.loadImage("../static/me+poopy.jpg");
+		profile = p.loadImage("../static/me_n_poopy.jpg");
 		
 		back_button = new Button(
 			p.width,
