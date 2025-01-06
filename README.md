@@ -1,2 +1,6 @@
 # Alex Martin's website
-This is the website of alex martin.
+This is Alex Martin's personal website. This was built using:
+- P5.js
+- HTML
+- CSS
+And was hosted using Github Pages.
