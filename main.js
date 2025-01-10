@@ -9,6 +9,7 @@ const treeHeight = (height) => height - 330;
 export const main = (p) => {
     let tree;
     let aboutButton;
+    let projectsButton;
 
     p.setup = () => {
         p.createCanvas(window.innerWidth, window.innerHeight);
@@ -18,10 +19,21 @@ export const main = (p) => {
             p.width,
             p.height,
             (x) => x / 2,
-            (_y) => 200,
-            80,
+            (y) => groundY(y) - 130,
+            320,
             "about/index.html",
-            "static/buttons/about.svg",
+            "static/pixel_characters/me_character.png",
+            p,
+        );
+
+        projectsButton = new Button(
+            p.width,
+            p.height,
+            (x) => x / 2 - 50,
+            (y) => groundY(y) - 60,
+            160,
+            "projects/index.html",
+            "static/pixel_characters/pepper_character.png",
             p,
         );
     };
@@ -38,6 +50,9 @@ export const main = (p) => {
         
         // About button
         aboutButton.render();
+
+        // Projects button
+        projectsButton.render();
         
         // Ground
         p.fill(groundColor);
@@ -60,14 +75,17 @@ export const main = (p) => {
         p.resizeCanvas(window.innerWidth, window.innerHeight);
         tree.update(250, treeHeight(p.height), groundY(p.height));
         aboutButton.update(p.width, p.height);
+        projectsButton.update(p.width, p.height);
     };
 
     p.mouseClicked = () => {
         aboutButton.click();
+        projectsButton.click();
     };
     
     p.touchStarted = () => {
-        aboutButton.click();
+        aboutButton.click();        
+        projectsButton.click();
     };
 };
 
