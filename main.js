@@ -29,11 +29,11 @@ export const main = (p) => {
         projectsButton = new Button(
             p.width,
             p.height,
-            (x) => x / 2 - 50,
-            (y) => groundY(y) - 60,
-            160,
+            (x) => x / 2 - 53,
+            (y) => groundY(y) - 55,
+            140,
             "projects/index.html",
-            "static/pixel_characters/pepper_character.png",
+            "static/pixel_characters/pep_but.png",
             p,
         );
     };

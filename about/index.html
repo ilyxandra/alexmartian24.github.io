@@ -1,14 +1,34 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
-		<script type="module" src="../utils/tree.js"></script>
-		<script type="module" src="main.js"></script>
-		<link rel="stylesheet" type="text/css" href="../main.css" />
-		<link rel="icon" href="../static/favicon.ico" type="image/x-icon" />
-		<meta charset="utf-8" />
-	</head>
-	<body>
-		<div id="sketch"></div>
-	</body>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+        <script type="module" src="../utils/tree.js"></script>
+        <script type="module" src="../utils/button.js"></script>
+        <script type="module" src="main.js"></script>
+        <link rel="stylesheet" type="text/css" href="main.css" />
+        <link rel="icon" href="../static/favicon.ico" type="image/x-icon" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <div class="header-content">
+                <a href="../index.html" class="back-button">
+                    <img src="../static/buttons/back_arrow.png" alt="Back" class="back-arrow">
+                </a>
+                <img src="../static/me_n_poopy.jpg" alt="Alex Martin and Pepper" class="profile-image">
+                <div class="header-text">
+                    <div class="text-content">
+                        <h1>About Me</h1>
+                        <p>Get to know me a little better!</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div id="sketch-container">
+                <div id="sketch"></div>
+            </div>
+        </main>
+    </body>
 </html>
