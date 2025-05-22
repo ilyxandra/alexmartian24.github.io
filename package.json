@@ -1,1 +1,1 @@
-{"type":"commonjs","dependencies":{"live-server":"^1.2.2","source-map-url":"^0.4.1"}}
+{"type":"commonjs","scripts":{"start":"live-server --port=8080 --open=index.html"},"dependencies":{"live-server":"^1.2.2","source-map-url":"^0.4.1"}}
