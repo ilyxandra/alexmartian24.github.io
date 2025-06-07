@@ -4,42 +4,29 @@ let backgroundColor = "#5accf1";
 var groundColor = "#ffffff";
 var groundY = (height) => height - 80;
 let tree;
+const treeHeight = (height) => height - 330;
 
 export const main = (p) => {
     let treeX, treeY;
-    let treeScale = 1;
 
     function computeTreePosition() {
-        // Center horizontally
-        treeX = p.width / 2;
-        // Place vertically so it stands on the ground, and is always visible
-        // Assume tree image is ~300px tall; adjust as needed
-        let treeImgHeight = 300 * treeScale;
-        treeY = groundY(p.height) - treeImgHeight / 2;
-        // If the canvas is very short, scale the tree down
-        if (p.height < 400) {
-            treeScale = p.height / 600;
-            treeImgHeight = 300 * treeScale;
-            treeY = groundY(p.height) - treeImgHeight / 2;
-        } else {
-            treeScale = 1;
-        }
+        treeX = 250;
+        treeY = treeHeight(p.height);
     }
 
     p.setup = () => {
         p.createCanvas(window.innerWidth, window.innerHeight);
         computeTreePosition();
         tree = new Tree(treeX, treeY, Seasons.Winter, groundY(p.height), p);
-        tree.scale = treeScale;
     };
 
     p.draw = () => {
         p.background(backgroundColor);
         computeTreePosition();
+        p.imageMode(p.CENTER, p.CENTER);
         if (tree) {
             tree.x = treeX;
             tree.y = treeY;
-            tree.scale = treeScale;
             tree.render();
         }
         // Draw ground
@@ -54,7 +41,6 @@ export const main = (p) => {
         if (tree) {
             tree.x = treeX;
             tree.y = treeY;
-            tree.scale = treeScale;
             tree.shedding.update(groundY(p.height));
         }
     };

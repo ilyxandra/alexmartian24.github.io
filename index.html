@@ -3,12 +3,32 @@
     <head>
         <title>Alex Martin | Personal Website</title>
         <meta name="description" content="Welcome to Alex Martin's personal website. Explore projects, learn more about Alex, and view the interactive homepage.">
+        <meta name="keywords" content="Alex Martin, portfolio, projects, web developer, creative coding, p5.js, personal website">
+        <meta name="author" content="Alex Martin">
+        <!-- Open Graph / Facebook -->
+        <meta property="og:title" content="Alex Martin | Personal Website">
+        <meta property="og:description" content="Explore Alex Martin's projects, biography, and interactive homepage.">
+        <meta property="og:image" content="static/me.jpg">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://alexmartian24.github.io/">
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Alex Martin | Personal Website">
+        <meta name="twitter:description" content="Explore Alex Martin's projects, biography, and interactive homepage.">
+        <meta name="twitter:image" content="static/me.jpg">
+        <!-- Accessibility -->
+        <meta name="theme-color" content="#89adf5">
+        <!-- Content Security Policy -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://*; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline';">
+        <!-- Favicon -->
+        <link rel="icon" href="static/favicon.ico" type="image/x-icon" />
+        <!-- Stylesheet -->
+        <link rel="stylesheet" type="text/css" href="main.css" />
+        <!-- Scripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
         <script type="module" src="utils/tree.js"></script>
         <script type="module" src="utils/button.js"></script>
         <script type="module" src="main.js"></script>
-        <link rel="stylesheet" type="text/css" href="main.css" />
-        <link rel="icon" href="static/favicon.ico" type="image/x-icon" />
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -22,16 +42,16 @@
                         <p>Welcome to my personal website!</p>
                     </div>
                     <div class="social-buttons">
-                        <a href="https://github.com/alexmartian24/" target="_blank">
+                        <a href="https://github.com/alexmartian24/" target="_blank" title="Visit my GitHub profile">
                             <img src="static/buttons/github.svg" alt="GitHub">
                         </a>
-                        <a href="https://www.linkedin.com/in/alexandramartin8024" target="_blank">
+                        <a href="https://www.linkedin.com/in/alexandramartin8024" target="_blank" title="Visit my LinkedIn profile">
                             <img src="static/buttons/linkedin.svg" alt="LinkedIn">
                         </a>
-                        <a href="https://instagram.com/ilymartian" target="_blank">
+                        <a href="https://instagram.com/ilymartian" target="_blank" title="Visit my Instagram">
                             <img src="static/buttons/instagram.svg" alt="Instagram">
                         </a>
-                        <a href="static/resume.pdf" target="_blank">
+                        <a href="static/resume.pdf" target="_blank" title="View my resume (PDF)">
                             <img src="static/buttons/resume.svg" alt="Resume">
                         </a>
                     </div>

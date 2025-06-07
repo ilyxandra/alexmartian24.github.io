@@ -6,6 +6,23 @@ const groundColor = "#1c2902";
 const groundY = (height) => height - 80;
 const treeHeight = (height) => height - 330;
 
+function drawTooltip(p, text) {
+    p.push();
+    p.textAlign(p.LEFT, p.BOTTOM);
+    p.textSize(18);
+    p.fill(30, 30, 30, 240);
+    let pad = 8;
+    let tw = p.textWidth(text) + pad * 2;
+    let th = 32;
+    let x = p.mouseX + 12;
+    let y = p.mouseY - 8;
+    p.noStroke();
+    p.rect(x, y - th, tw, th, 7);
+    p.fill(255);
+    p.text(text, x + pad, y - pad);
+    p.pop();
+}
+
 export const main = (p) => {
     let tree;
     let aboutButton;
@@ -14,7 +31,7 @@ export const main = (p) => {
     p.setup = () => {
         p.createCanvas(window.innerWidth, window.innerHeight);
         tree = new Tree(250, treeHeight(p.height), Seasons.Spring, groundY(p.height), p);
-        
+
         aboutButton = new Button(
             p.width,
             p.height,
@@ -41,23 +58,31 @@ export const main = (p) => {
     p.draw = () => {
         p.noStroke();
         p.imageMode(p.CENTER, p.CENTER);
-        
+
         // Background
         p.background(lightBlue);
-        
+
         // Tree
         tree.render();
-        
+
         // About button
         aboutButton.render();
 
         // Projects button
         projectsButton.render();
-        
+
+        // Tooltips for pixel characters
+        if (aboutButton.isHovered) {
+            drawTooltip(p, 'About Me (Alex)');
+        }
+        if (projectsButton.isHovered) {
+            drawTooltip(p, 'Pepper for Projects');
+        }
+
         // Ground
         p.fill(groundColor);
         p.rect(0, groundY(p.height), p.width, p.height);
-        
+
         // Bee cursor
         p.push();
         p.translate(p.mouseX, p.mouseY);
@@ -82,9 +107,9 @@ export const main = (p) => {
         aboutButton.click();
         projectsButton.click();
     };
-    
+
     p.touchStarted = () => {
-        aboutButton.click();        
+        aboutButton.click();
         projectsButton.click();
     };
 };
